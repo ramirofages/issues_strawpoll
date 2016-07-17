@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
 
-  concern :mocked_project do
-    get  'mocked',  to: 'projects/mocked_projects#new',    on: :new
-    post 'mocked',  to: 'projects/mocked_projects#create', on: :new
-  end
 
   resources :projects, only: ['index', 'new']
 
   
   namespace :projects do
-    resources :mocked, except: ['index', 'destroy']
+    resources :mocked, except: ['index']
   end
 
 

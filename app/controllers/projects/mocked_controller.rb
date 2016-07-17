@@ -11,6 +11,6 @@ class Projects::MockedController < ProjectsController
 	private
 
     def source_params
-       params.require(:project).permit(source_project_attributes: [:url])
+       params.require(:project).require(:project_source).permit(:url)
     end
 end
