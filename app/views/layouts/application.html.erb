@@ -10,9 +10,16 @@
 </head>
 <body>
 
-  <%= render 'layouts/navbar' %>
-  <div class="container">
-	 <%= yield %>
-  </div>
+	<%= render 'layouts/navbar' %>
+	
+	<main>
+		<div class="container">
+		 <%= yield %>
+		</div>
+	</main>
+
+	<footer class="page-footer brown darken-1"></footer>
+          
+    
 </body>
 </html>

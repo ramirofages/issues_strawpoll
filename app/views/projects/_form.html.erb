@@ -20,10 +20,10 @@
   </div>
 
      
-<div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-</div><br>
+  <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
+  </div><br>
 
 
   <div class="field">
@@ -33,11 +33,12 @@
 
 
 
-<%= f.fields_for :project_source do |source| %>
-  <%= render partial: "source_form", locals: { source: source } %>
-<% end %>
+  <%= f.fields_for :project_source do |source| %>
+    <%= render partial: "source_form", locals: { source: source } %>
+  <% end %><br>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <button class="btn waves-effect waves-light" type="submit" name="action"><%= f.submit %>
+    <i class="material-icons right">send</i>
+  </button>
 <% end %>
