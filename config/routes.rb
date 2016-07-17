@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
 
-  resources :projects, only: ['index', 'new']
+  resources :projects, only: ['index'] do 
+    get 'select', on: :collection   
+  end
 
   
   namespace :projects do
