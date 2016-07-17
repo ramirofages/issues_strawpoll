@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
 
-  resources :projects
+  concern :mocked_project do
+    get  'mocked',  to: 'projects/mocked_projects#new',    on: :new
+    post 'mocked',  to: 'projects/mocked_projects#create', on: :new
+  end
+
+  resources :projects, only: ['index', 'new']
+
+  
+  namespace :projects do
+    resources :mocked, except: ['index', 'destroy']
+  end
+
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

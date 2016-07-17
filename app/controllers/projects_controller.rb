@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+
   # GET /projects/1
   # GET /projects/1.json
   def show
@@ -15,6 +16,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @project.project_source = create_source
   end
 
   # GET /projects/1/edit
@@ -25,7 +27,8 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
+    @project.project_source = build_source
+    asd
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }

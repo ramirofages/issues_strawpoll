@@ -1,4 +1,7 @@
 <%= form_for(@project) do |f| %>
+
+
+
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -15,18 +18,21 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :public %><br>
-    <%= f.check_box :public %>
-  </div>
-  <div class="field">
+
+     
+<div class="field">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
-  </div>
+</div><br>
+
+
   <div class="field">
-    <%= f.label :project_source_id %><br>
-    <%= f.text_field :project_source_id %>
-  </div>
+    <%= f.check_box :public %>
+    <%= f.label :public %>
+  </div><br>
+
+<%= render partial: "source_form", locals: { f: f } %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
