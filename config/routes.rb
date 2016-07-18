@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
 
-  resources :projects, only: ['index'] do 
+  resources :my_projects, only: ['index'] do 
     get 'select', on: :collection   
   end
 
   
-  namespace :projects do
+  namespace :my_projects do
     resources :mocked, except: ['index']
   end
 

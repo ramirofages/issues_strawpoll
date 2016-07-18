@@ -1,4 +1,4 @@
-class Projects::MockedController < ProjectsController
+class MyProjects::MockedController < MyProjectsController
 
 	def create_source
 		MockedSource.new
