@@ -14,7 +14,15 @@
 	
 	<main>
 		<div class="container">
-		 <%= yield %>
+			<% if notice %>
+		    <div class="card-panel blue lighten-1" id="notice">
+		    	<span class="white-text text-white">
+		    		<%= notice %>
+		    	</span>
+		  	</div>
+	  	<% end %>
+
+			<%= yield %>
 		</div>
 	</main>
 

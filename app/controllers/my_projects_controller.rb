@@ -15,7 +15,7 @@ class MyProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @my_projects = Project.new
+    @my_project = Project.new
     
   end
 
@@ -26,15 +26,15 @@ class MyProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @my_projects = Project.new(project_params)
+    @my_project = Project.new(project_params)
 
     respond_to do |format|
-      if @my_projects.save
+      if @my_project.save
         format.html { redirect_to my_projects_url, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @my_projects }
+        format.json { render :show, status: :created, location: @my_project }
       else
         format.html { render :new }
-        format.json { render json: @my_projects.errors, status: :unprocessable_entity }
+        format.json { render json: @my_project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,12 +43,12 @@ class MyProjectsController < ApplicationController
   # PATCH/PUT /projects/1.json
   def update
     respond_to do |format|
-      if @my_projects.update(project_params)
-        format.html { redirect_to @my_projects, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @my_projects }
+      if @my_project.update(project_params)
+        format.html { redirect_to my_project_path(@my_project), notice: 'Project was successfully updated.' }
+        format.json { render :show, status: :ok, location: @my_project }
       else
         format.html { render :edit }
-        format.json { render json: @my_projects.errors, status: :unprocessable_entity }
+        format.json { render json: @my_project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,7 +56,7 @@ class MyProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @my_projects.destroy
+    @my_project.destroy
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
