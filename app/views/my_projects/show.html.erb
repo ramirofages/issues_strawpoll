@@ -2,25 +2,25 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @project.name %>
+  <%= @my_project.name %>
 </p>
 
 <p>
   <strong>Public:</strong>
-  <%= @project.public %>
+  <%= @my_project.public %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @project.description %>
+  <%= @my_project.description %>
 </p>
 
-<% if @project.project_source == nil %>
-	<%= link_to 'Create source', new_my_project_mocked_source_path(@project) %> 
+<% if @my_project.project_source == nil %>
+	<%= link_to 'Create source', new_my_project_mocked_source_path(@my_project) %> 
 <% else %>
-	<%= link_to 'Source configuration',  my_project_mocked_source_path(@project)  %> 
+	<%= link_to 'Source configuration',  my_project_mocked_source_path(@my_project)  %> 
 <% end %>
 
 <br><br>
-<%= link_to 'Edit', edit_my_project_path(@project) %> |
+<%= link_to 'Edit', edit_my_project_path(@my_project) %> |
 <%= link_to 'Back', my_projects_path %>
