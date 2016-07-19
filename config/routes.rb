@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :my_projects do 
-    resource :mocked_source, except: ['destroy']
+    resource :mocked_source, except: ['destroy'], module: 'sources'
   end
 
   resources :projects 

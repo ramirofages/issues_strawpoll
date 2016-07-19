@@ -16,7 +16,7 @@
 </p>
 
 <% if @project.project_source == nil %>
-	<%= link_to 'Create source', new_my_project_mocked_source_path(@project) %> |
+	<%= link_to 'Create source', new_my_project_mocked_source_path(@project) %> 
 <% else %>
 	<%= link_to 'Source configuration',  my_project_mocked_source_path(@project)  %> 
 <% end %>

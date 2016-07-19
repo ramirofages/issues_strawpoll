@@ -1,6 +1,6 @@
 <% set_source_decorator %>
 
-<h2 class="center">New <%=@my_project.project_source.name %> source</h2>
+<h2 class="center">New <%= @my_project.project_source.name %> source</h2>
 <%= render 'form' %>
 <br>
-<%= link_to 'Back', "" %>
+<%= link_to 'Back', my_project_path(@my_project) %>

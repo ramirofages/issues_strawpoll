@@ -5,22 +5,12 @@
   <%= @project.name %>
 </p>
 
-<p>
-  <strong>Public:</strong>
-  <%= @project.public %>
-</p>
 
 <p>
   <strong>Description:</strong>
   <%= @project.description %>
 </p>
 
-<% if @project.project_source == nil %>
-	<%= link_to 'Create source', new_my_project_mocked_source_path(@project) %> |
-<% else %>
-	<%= link_to 'Source configuration',  my_project_mocked_source_path(@project)  %> 
-<% end %>
-
-<br><br>
+<br>
 <%= link_to 'Edit', edit_my_project_path(@project) %> |
 <%= link_to 'Back', my_projects_path %>
