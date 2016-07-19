@@ -12,8 +12,4 @@ class MockedSource < ActiveRecord::Base
 			
 		end
 	end
-
-	def name
-		"Mocked"
-	end
 end

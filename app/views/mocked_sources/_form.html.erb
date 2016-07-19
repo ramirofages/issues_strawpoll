@@ -1,0 +1,11 @@
+<%= form_for @my_project.project_source, url: my_project_mocked_source_path(@my_project) do |f| %>
+
+	<div class="field">
+		<%= f.label :url %><br>
+		<%= f.text_field :url %>
+	</div>
+	<button class="btn waves-effect waves-light" type="submit" name="action"><%= f.submit %>
+		<i class="material-icons right">send</i>
+	</button>
+
+<% end %>

@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
 
 
-  resources :my_projects, only: ['index'] do 
-    get 'select', on: :collection   
+  resources :my_projects do 
+    resource :mocked_source, except: ['destroy']
   end
 
-  
-  namespace :my_projects do
-    resources :mocked, except: ['index']
-  end
+  resources :projects 
 
-
-
+  #/my_projects
+  #/my_projects/new/mocked
+  #/my_projects/mocked/5
+  #/my_projects/mocked/5/edit
 
 
   # The priority is based upon order of creation: first created -> highest priority.
