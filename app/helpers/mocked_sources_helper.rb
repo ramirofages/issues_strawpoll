@@ -1,7 +1,7 @@
 module MockedSourcesHelper
-	def form_url
-		my_projects_mocked_index_url
-	end
 	
+	def set_source_decorator
+		@my_project.project_source = MockedSourceDecorator.new(@my_project.project_source) 
+	end	
 
 end

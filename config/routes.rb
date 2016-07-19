@@ -7,10 +7,6 @@ Rails.application.routes.draw do
 
   resources :projects 
 
-  #/my_projects
-  #/my_projects/new/mocked
-  #/my_projects/mocked/5
-  #/my_projects/mocked/5/edit
 
 
   # The priority is based upon order of creation: first created -> highest priority.
