@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resource :mocked_source, except: ['destroy'], module: 'sources'
   end
 
-  resources :projects 
+  resources :projects , only: ['show', 'index']
 
 
 

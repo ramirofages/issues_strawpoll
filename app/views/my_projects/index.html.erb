@@ -6,9 +6,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Public</th>
+      <th>Visibility</th>
       <th>Description</th>
-      <th>Project source</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +16,7 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.name %></td>
-        <td><%= project.public %></td>
+        <td ><strong ><%= visibility(project) %></strong></td>
         <td><%= project.description %></td>
         <td><%= link_to 'Show', my_project_path(project) %></td>
         <td><%= link_to 'Edit', "" %></td>
@@ -29,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Project', new_my_project_path %>
+<%= link_to 'New Project', new_my_project_path, :class => 'waves-effect waves-light btn' %>
