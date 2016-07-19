@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users
   resources :my_projects do 
     resource :mocked_source, except: ['destroy'], module: 'sources'
     member do
