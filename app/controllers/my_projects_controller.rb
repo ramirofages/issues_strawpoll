@@ -1,11 +1,12 @@
 class MyProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, except: [:index, :new, :create]
 
   # GET /projects
   # GET /projects.json
   def index
     @my_projects = Project.all
   end
+
 
 
   # GET /projects/1
@@ -15,8 +16,10 @@ class MyProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @my_project = Project.new
-    
+    @my_project = Project.new 
+  end
+
+  def new_source
   end
 
   # GET /projects/1/edit

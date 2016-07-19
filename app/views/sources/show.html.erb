@@ -1,8 +1,13 @@
 <% set_source_decorator %>
 
-
+<h4><%= @my_project.project_source.name %> source </h4>
 
 <%= render 'show' %>
 
-<%= link_to 'Edit', edit_my_project_path(@my_project) %> |
-<%= link_to 'Back', my_project_path(@my_project) %>
+<%= link_to 'Edit', edit_my_project_mocked_source_path(@my_project), :class => 'waves-effect waves-light btn'  %> 
+<br><br>
+<div class="divider"></div>
+<br>
+<%= link_to '<< Back', my_project_path(@my_project), :class => 'waves-effect waves-light btn' %>
+
+

@@ -1,9 +1,4 @@
-<% set_source_decorator %>
-<h4>Project: </h4>
-<p>
-  <strong>Name:</strong>
-  <%= @my_project.name %>
-</p>
+<h4><%= @my_project.name %></h4>
 
 <p>
   <strong>Visibility:</strong>
@@ -20,16 +15,17 @@
 <div class="divider"></div>
 
 <% if @my_project.project_source == nil %>
-	<h4>Source: </h4>
-	<%= link_to 'Create source', new_my_project_mocked_source_path(@my_project), :class => 'waves-effect waves-light btn' %> 
+	<h4>Source: none </h4>
+	<%= link_to 'Create source', new_source_my_project_path(@my_project), :class => 'waves-effect waves-light btn' %> 
 <% else %>
+
+	<% set_source_decorator %>
 	  
 	<h4>Source:  <%= @my_project.project_source.name %></h4>
-	<p>
-	  
-	</p>
-	<%= link_to 'Source configuration',  my_project_mocked_source_path(@my_project), :class => 'waves-effect waves-light btn'  %> 
+
+	<%= link_to 'Source configuration',  source_path(@my_project) , :class => 'waves-effect waves-light btn'  %> 
 <% end %>
+
 <br><br>
 <div class="divider"></div>
 <br>

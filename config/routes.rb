@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   resources :my_projects do 
     resource :mocked_source, except: ['destroy'], module: 'sources'
+    member do
+      get 'new_source'
+    end
   end
 
   resources :projects , only: ['show', 'index']

@@ -10,9 +10,6 @@ class Sources::MockedSourcesController < SourcesController
 	    MockedSource.new(source_params)
     end
 
-
-	private
-
     def source_params
       params.require(:mocked_source).permit(:url)
     end
