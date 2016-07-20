@@ -1,0 +1,51 @@
+<%= form_for @poll, url: {action: action} do |f| %>
+
+
+
+  <% if @poll.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@poll.errors.count, "error") %> prohibited this poll from being saved:</h2>
+
+      <ul>
+      <% @poll.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+     
+  <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
+  </div><br>
+        
+  Duration(days)
+  <div class="row" >
+    <div class="col s1">
+      <%= f.select(:duration, (1..50).map {|i| [i,i] } ,{}, class: 'browser-default') %>
+    </div>
+  </div>
+
+
+  <br>
+ 
+
+  <%= f.collection_check_boxes( :issues, @issues, :src_issue_id, :name) do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+  <% end %>
+  <br>
+      
+
+  <button class="btn waves-effect waves-light" type="submit" name="action"><%= f.submit %>
+    <i class="material-icons right">send</i>
+  </button>
+<% end %>

@@ -1,0 +1,29 @@
+<% if @my_project.project_source.nil? %>
+	<p><strong> create source first </strong> </p>
+<% else %>
+	  <a class="btn-floating btn-small waves-effect waves-light  pink darken-3" href=<%= new_my_project_poll_path(@my_project) %>>
+	  	<i class="material-icons">add</i>
+	  </a> 
+
+      <table class="striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Ends in</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @my_project.polls.each do |poll| %>
+          <tr>
+            <td><%= poll.name %></td>
+            <td><%= (poll.duration - Date.today).to_i   %> days</td>
+
+            <td><%= link_to 'Details', my_project_path(@my_project) %></td>
+            <td><%= link_to 'Destroy', my_project_path(@my_project), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+<% end %>
