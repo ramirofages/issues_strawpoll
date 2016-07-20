@@ -1,2 +1,6 @@
-<h1>Polls#update</h1>
-<p>Find me in app/views/polls/update.html.erb</p>
+<h2 class="center">Edit Poll</h2>
+
+<%= render 'form', action: 'update' %>
+
+<br><br>
+<%= link_to '<< Back', my_project_path( @project ) , :class => 'waves-effect waves-light btn' %>

@@ -19,8 +19,8 @@
             <td><%= poll.name %></td>
             <td><%= (poll.expiration_date - Date.today).to_i   %> days</td>
 
-            <td><%= link_to 'Details', my_project_path(@my_project) %></td>
-            <td><%= link_to 'Destroy', my_project_path(@my_project), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Details', my_project_poll_path(@my_project, poll) %></td>
+            <td><%= link_to 'Destroy', my_project_poll_path(@my_project, poll), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

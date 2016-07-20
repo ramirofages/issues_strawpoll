@@ -1,17 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'polls/index'
 
-  get 'polls/show'
-
-  get 'polls/new'
-
-  get 'polls/update'
-
-  get 'polls/create'
-
-  get 'polls/destroy'
 
   devise_for :users
   resources :my_projects do 

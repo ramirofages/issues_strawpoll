@@ -24,25 +24,28 @@
       <%= f.label :description %><br>
       <%= f.text_field :description %>
   </div><br>
-        
-  Duration(days)
+  Ends in(days):
   <div class="row" >
     <div class="col s1">
-      <%= f.select(:duration, (1..50).map {|i| [i,i] } ,{}, class: 'browser-default') %>
+      <%= f.select(:expiration_date, (1..50).map {|i| [i,i] } ,{:selected => duration_initial_value(@poll)}, class: 'browser-default') %>
     </div>
   </div>
 
 
-  <br>
- 
 
-  <%= f.collection_check_boxes( :issues, @issues, :src_issue_id, :name) do |b| %>
-      <div class="collection-check-box">
-        <%= b.check_box %>
-        <%= b.label %>
-      </div>
+ 
+  <% unless action=='update' %>
+    <br>
+    <%= f.collection_check_boxes( :issues, @issues, :src_issue_id, :name) do |b| %>
+        <div class="collection-check-box">
+          <%= b.check_box %>
+          <%= b.label %>
+        </div>
+    <% end %>
+    <br>
   <% end %>
-  <br>
+
+
       
 
   <button class="btn waves-effect waves-light" type="submit" name="action"><%= f.submit %>

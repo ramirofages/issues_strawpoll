@@ -1,5 +1,7 @@
 class PollsController < ApplicationController
   before_action :set_project
+  before_action :set_poll, except: [:new, :create]
+
 
 
   def show
@@ -28,9 +30,22 @@ class PollsController < ApplicationController
   end
 
   def update
+    @poll.expiration_date = Date.today + poll_duration.to_i
+
+    respond_to do |format|
+      if @poll.update(poll_params)
+        format.html { redirect_to my_project_poll_path(@project, @poll), notice: 'Poll was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def destroy
+    @poll.destroy
+    respond_to do |format|
+      format.html { redirect_to my_project_path(@project), notice: 'Poll was successfully destroyed.' }
+    end
   end
 
   private
@@ -39,11 +54,15 @@ class PollsController < ApplicationController
       @project = Project.find(params[:my_project_id])
     end
 
+    def set_poll
+      @poll = Poll.find(params[:id])
+    end
+
     def poll_params
       params.require(:poll).permit(:name, :description)
     end
     def poll_duration
-      params.require(:poll).permit(:duration)[:duration]
+      params.require(:poll).permit(:expiration_date)[:expiration_date]
     end
 
     def issues_ids
