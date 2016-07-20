@@ -19,7 +19,7 @@
             <td ><strong ><%= visibility(project) %></strong></td>
             <td><%= source_name(project) %></td>
             <td><%= link_to 'Details', my_project_path(project) %></td>
-            <td><%= link_to 'Destroy', "", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Destroy', my_project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

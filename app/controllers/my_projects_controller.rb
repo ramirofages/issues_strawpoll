@@ -4,7 +4,7 @@ class MyProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @my_projects = Project.all
+    @my_projects = current_user.projects
   end
 
 
@@ -30,6 +30,7 @@ class MyProjectsController < ApplicationController
   # POST /projects.json
   def create
     @my_project = Project.new(project_params)
+    @my_project.user = current_user
 
     respond_to do |format|
       if @my_project.save
@@ -61,7 +62,7 @@ class MyProjectsController < ApplicationController
   def destroy
     @my_project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to my_projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
