@@ -20,4 +20,8 @@ module MyProjectsHelper
 	def source_name(project)
 		(project.project_source.nil?) ? 'none' : project.project_source.name
 	end
+
+	def is_owner?(project)
+		project.user == current_user
+	end
 end
