@@ -11,6 +11,8 @@
             <strong><%= link_to project.name, project_path(project) %></strong>
           </span>
           <p>
+            Polls: <%= project.polls.count %><br>
+
             <%= project.description %>
           </p>
           <% if is_owner?(project) %>

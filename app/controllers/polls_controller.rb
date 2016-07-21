@@ -1,7 +1,7 @@
 class PollsController < ApplicationController
   before_action :set_project
   before_action :set_poll, except: [:new, :create]
-
+  before_action :validate_source
 
 
   def show
@@ -69,5 +69,11 @@ class PollsController < ApplicationController
       issues = params.require(:poll).require(:issues)
       issues.pop #el ultimo elemento siempre es un string vacio que no nos sirve
       issues 
+    end
+
+    def validate_source
+      if @project.project_source.nil? 
+        redirect_to my_project_path(@project), alert: 'Project has no source. Create source first.'
+      end
     end
 end
