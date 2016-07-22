@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'cancancan'
 gem 'devise'
 gem 'launchy'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

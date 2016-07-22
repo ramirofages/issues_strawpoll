@@ -1,7 +1,7 @@
 class PublicView::PollsController < ApplicationController
+  load_and_authorize_resource
 
-  before_action :set_poll
-
+  #before_action :set_poll
 
   def show
   end
@@ -9,16 +9,9 @@ class PublicView::PollsController < ApplicationController
   def vote
   end
 
-  def new_vote
+  def create_vote
 
   end
 
-
-
-  private
-
-	  def set_poll
-	    @poll = Poll.find(params[:id])
-	  end
 
 end
