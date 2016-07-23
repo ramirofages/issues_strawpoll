@@ -1,7 +1,7 @@
 class User::ProjectsController < ApplicationController
 
   load_and_authorize_resource :project
-  #before_action :authorize_my_project, except: [:index]
+
   # GET /projects
   def index
     @projects = current_user.projects
@@ -49,7 +49,6 @@ class User::ProjectsController < ApplicationController
   end
 
   # DELETE /projects/1
-  # DELETE /projects/1.json
   def destroy
     @project.destroy
     respond_to do |format|

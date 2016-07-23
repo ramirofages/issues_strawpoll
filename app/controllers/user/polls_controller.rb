@@ -1,6 +1,7 @@
 class User::PollsController < ApplicationController
-  load_resource :project
-  before_action :set_poll, except: [:new, :create]
+  load_and_authorize_resource :project
+  load_and_authorize_resource :through => :project
+
   before_action :validate_source
 
 
@@ -8,7 +9,6 @@ class User::PollsController < ApplicationController
   end
 
   def new
-    @poll = Poll.new
     @issues = @project.project_source.all_issues
   end
 
@@ -17,7 +17,6 @@ class User::PollsController < ApplicationController
 
 
   def create
-    @poll = Poll.new(poll_params)
     @poll.issues = @project.project_source.select_issues(issues_ids)
     @poll.expiration_date = Date.today + poll_duration.to_i
     respond_to do |format|

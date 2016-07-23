@@ -10,10 +10,17 @@ class Ability
     can :read, Poll
 
     if user.persisted?
-        can :manage, Project, :user_id  => user.id
+        can :manage, Project,   :user_id  => user.id
+        can :manage, Poll,      :project  => { :user_id  => user.id }
+        
+        can :manage, ProjectSource,    :project  => { :user_id  => user.id }
+
+
+
+        cannot :vote, Poll, :votes => { :user_id  => user.id } #no puede votar de nuevo si ya voto
+
     end
 
-    cannot :vote, Poll, :votes => { :user_id  => user.id }
 
 
     # Define abilities for the passed in user here. For example:
