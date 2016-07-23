@@ -15,7 +15,7 @@
             <%= project.description %>
           </p>
           <% if is_owner?(project) %>
-            <a href= <%= my_project_path(project)%> class="secondary-content"><i class="material-icons">settings</i></a>
+            <a href= <%= user_project_path(project)%> class="secondary-content"><i class="material-icons">settings</i></a>
           <% end %>
         </li>
       <% end %>

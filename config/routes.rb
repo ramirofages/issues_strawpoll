@@ -17,11 +17,11 @@ Rails.application.routes.draw do
     end
   end
 
-  #resources :projects , only: ['show', 'index'], module: 'public_view' do 
-  #  resources :polls, only: ['show'] do 
-  #    resources :votes, only: [:create, :new]
-  #  end
-  #end
+  resources :projects , only: ['show', 'index'], module: 'public_view' do 
+    resources :polls, only: ['show'] do 
+      resources :votes, only: [:create, :new]
+    end
+  end
 
 
 
