@@ -1,6 +1,6 @@
 class User::ProjectsController < ApplicationController
 
-  load_resource :project
+  load_and_authorize_resource :project
   #before_action :authorize_my_project, except: [:index]
   # GET /projects
   def index
