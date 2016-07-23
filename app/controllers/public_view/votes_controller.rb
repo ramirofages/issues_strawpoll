@@ -1,7 +1,8 @@
 class PublicView::VotesController < ApplicationController
 	load_resource :project
 	load_resource :poll
-	
+	before_filter :authorize_poll
+
   def new
   end
 
@@ -23,12 +24,16 @@ class PublicView::VotesController < ApplicationController
   end
 
 
+  private
 
+  	def authorize_poll
+  		authorize! :vote, @poll
+  	end
 
-  def issues_ids
+	  def issues_ids
 
-    voted_issues = params.require(:votes)[:id]
-    voted_issues.pop #el ultimo elemento siempre es un string vacio que no nos sirve
-    voted_issues 
-  end
+	    voted_issues = params.require(:votes)[:id]
+	    voted_issues.pop #el ultimo elemento siempre es un string vacio que no nos sirve
+	    voted_issues 
+	  end
 end

@@ -5,9 +5,9 @@ class Ability
 
     user ||= User.new
 
-    can [:vote, :create_vote], Poll if user.persisted?
     can :read, Poll
 
+    cannot :vote, Poll, :votes => { :user_id  => user.id }
 
 
     # Define abilities for the passed in user here. For example:
