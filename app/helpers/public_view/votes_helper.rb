@@ -1,0 +1,2 @@
+module PublicView::VotesHelper
+end

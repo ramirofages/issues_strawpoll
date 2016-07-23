@@ -5,9 +5,9 @@
 <h5 class="center"> Vote for the issues of <%= @poll.name %> </h5>
 
 
-    <%= form_for @poll, url: create_vote_project_poll_path(@poll.project,@poll) do |f| %>
+    <%= form_tag  project_poll_votes_path do  %>
 
-      <%= f.collection_check_boxes( :issues, @poll.issues, :src_issue_id, :name) do |b| %>
+      <%= collection_check_boxes( :votes, :id, @poll.issues, :id, :name) do |b| %>
         <div class="collection-check-box">
 
           <div class="card light-green lighten-2">
@@ -31,13 +31,12 @@
       <% end %>
     <div class="divider"></div>
     <br>
-    <button class="btn waves-effect waves-light btn red lighten-2" type="submit" name="action">Send votes
-      <i class="material-icons right">send</i>
-    </button>
+    <%= submit_tag("Send votes >", class: "btn waves-effect waves-light btn red lighten-2") %>
+
     <% end %>
 
 <br>
-<%= link_to '<< Back', project_path(@poll.project), :class => 'waves-effect waves-light btn'  %>
+<%= link_to '<< Back', project_poll_path(@poll.project, @poll), :class => 'waves-effect waves-light btn'  %>
 
 
 </div>

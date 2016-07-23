@@ -6,7 +6,6 @@
     <ul class="collection">
       <% @projects.each do |project| %>
         <li class="collection-item avatar">
-          <i class="material-icons circle blue darken-1">play_arrow</i>     
           <span class="title">
             <strong><%= link_to project.name, project_path(project) %></strong>
           </span>

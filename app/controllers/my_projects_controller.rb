@@ -35,10 +35,8 @@ class MyProjectsController < ApplicationController
     respond_to do |format|
       if @my_project.save
         format.html { redirect_to my_projects_url, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @my_project }
       else
         format.html { render :new }
-        format.json { render json: @my_project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,10 +47,8 @@ class MyProjectsController < ApplicationController
     respond_to do |format|
       if @my_project.update(project_params)
         format.html { redirect_to my_project_path(@my_project), notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @my_project }
       else
         format.html { render :edit }
-        format.json { render json: @my_project.errors, status: :unprocessable_entity }
       end
     end
   end
