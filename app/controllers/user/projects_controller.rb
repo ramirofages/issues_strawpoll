@@ -1,7 +1,7 @@
-class MyProjectsController < ApplicationController
+class User::ProjectsController < ApplicationController
 
-  load_resource :project, :id_param => :id
-  before_action :authorize_my_project, except: [:index]
+  load_resource :project
+  #before_action :authorize_my_project, except: [:index]
   # GET /projects
   def index
     @projects = current_user.projects
@@ -59,11 +59,6 @@ class MyProjectsController < ApplicationController
   end
 
   private
-
-    def authorize_my_project
-      authorize! :crud_my_project, @project
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:name, :public, :description)

@@ -1,6 +1,6 @@
 class SourcesController < ApplicationController
 
-	before_action :set_project
+  load_resource :project
 
   def show
   end
@@ -48,11 +48,5 @@ class SourcesController < ApplicationController
     end
     def source_params
       raise "no definiste el source params"
-    end
-
-	private
-
-    def set_project
-      @my_project = Project.find(params[:my_project_id])
     end
 end

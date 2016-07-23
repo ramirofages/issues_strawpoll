@@ -1,24 +1,27 @@
 Rails.application.routes.draw do
 
 
-  namespace :public_view do
-  get 'votes/new'
-  end
+  #namespace :public_view do
+  #  get 'votes/new'
+  #end
 
   devise_for :users
-  resources :my_projects do 
-    resource :mocked_source, except: ['destroy'], module: 'sources'
-    resources :polls
-    member do
-      get 'new_source'
+
+  namespace 'user' do
+    resources :projects do 
+      resource :mocked_source, except: ['destroy'], module: 'sources'
+      resources :polls
+      member do
+        get 'new_source'
+      end
     end
   end
 
-  resources :projects , only: ['show', 'index'], module: 'public_view' do 
-    resources :polls, only: ['show'] do 
-      resources :votes, only: [:create, :new]
-    end
-  end
+  #resources :projects , only: ['show', 'index'], module: 'public_view' do 
+  #  resources :polls, only: ['show'] do 
+  #    resources :votes, only: [:create, :new]
+  #  end
+  #end
 
 
 

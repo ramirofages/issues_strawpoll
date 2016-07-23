@@ -1,7 +1,7 @@
 <% if @project.project_source.nil? %>
 	<p><strong> create source first </strong> </p>
 <% else %>
-	  <a class="btn-floating btn-small waves-effect waves-light  pink darken-3" href=<%= new_my_project_poll_path(@project) %>>
+	  <a class="btn-floating btn-small waves-effect waves-light  pink darken-3" href=<%= new_user_project_poll_path(@project) %>>
 	  	<i class="material-icons">add</i>
 	  </a> 
 
@@ -19,8 +19,8 @@
             <td><%= poll.name %></td>
             <td><%= (poll.expiration_date - Date.today).to_i   %> days</td>
 
-            <td><%= link_to 'Details', my_project_poll_path(@project, poll) %></td>
-            <td><%= link_to 'Destroy', my_project_poll_path(@project, poll), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Details', user_project_poll_path(@project, poll) %></td>
+            <td><%= link_to 'Destroy', user_project_poll_path(@project, poll), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

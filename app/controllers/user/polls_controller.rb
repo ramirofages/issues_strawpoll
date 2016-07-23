@@ -1,4 +1,4 @@
-class PollsController < ApplicationController
+class PrivateView::PollsController < ApplicationController
   before_action :set_project
   before_action :set_poll, except: [:new, :create]
   before_action :validate_source

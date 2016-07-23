@@ -13,13 +13,13 @@
   <%= @project.description %>
 </p>
 
-<%= link_to 'Project configuration', edit_my_project_path(@project), :class => 'waves-effect waves-light btn' %> 
+<%= link_to 'Project configuration', edit_user_project_path(@project), :class => 'waves-effect waves-light btn' %> 
 <br><br>
 <div class="divider"></div>
 
 <% if @project.project_source == nil %>
 	<h4>Source: none </h4>
-	<%= link_to 'Create source', new_source_my_project_path(@project), :class => 'waves-effect waves-light btn' %> 
+	<%= link_to 'Create source', new_source_user_project_path(@project), :class => 'waves-effect waves-light btn' %> 
 <% else %>
 
 	<% set_source_decorator %>
@@ -38,5 +38,5 @@
 <br>
 <div class="divider"></div>
 <br>
-<%= link_to '<< Back', my_projects_path, :class => 'waves-effect waves-light btn' %>
+<%= link_to '<< Back', user_projects_path, :class => 'waves-effect waves-light btn' %>
 
