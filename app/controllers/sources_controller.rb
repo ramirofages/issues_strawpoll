@@ -6,22 +6,20 @@ class SourcesController < ApplicationController
   end
 
 	def new
-  	@my_project.project_source = create_source
+  	@project.project_source = create_source
 	end
 
   def edit
   end
 
 	def create
-		@my_project.project_source = build_source
+		@project.project_source = build_source
   		
     respond_to do |format|
-      if @my_project.save
-        format.html { redirect_to my_project_path @my_project, notice: 'Mocked source was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
+      if @project.save
+        format.html { redirect_to user_project_path @project, notice: 'Mocked source was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -29,12 +27,10 @@ class SourcesController < ApplicationController
   def update
 
     respond_to do |format|
-      if @my_project.project_source.update(source_params)
-        format.html { redirect_to my_project_path @my_project, notice: 'Mocked source was successfully updated.' }
-        format.json { render :show, status: :created, location: @project }
+      if @project.project_source.update(source_params)
+        format.html { redirect_to user_project_path @project, notice: 'Mocked source was successfully updated.' }
       else
         format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
