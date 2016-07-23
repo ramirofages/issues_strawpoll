@@ -7,11 +7,7 @@ class PublicView::ProjectsController < ApplicationController
   # GET /projects.json
 
   def index
-    if user_signed_in?
-      @projects = Project.all
-    else
-      @projects = Project.all.where public: true
-    end
+    @projects = Project.all
   end
 
 

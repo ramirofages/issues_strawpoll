@@ -5,7 +5,13 @@ class Ability
 
     user ||= User.new
 
+    alias_action :create, :read, :update, :destroy, :to => :crud
+
     can :read, Poll
+
+    if user.persisted?
+        can :crud_my_project, Project, :user_id  => user.id
+    end
 
     cannot :vote, Poll, :votes => { :user_id  => user.id }
 

@@ -1,22 +1,20 @@
 class MyProjectsController < ApplicationController
-  before_action :set_project, except: [:index, :new, :create]
 
+  load_resource :project, :id_param => :id
+  before_action :authorize_my_project, except: [:index]
   # GET /projects
-  # GET /projects.json
   def index
-    @my_projects = current_user.projects
+    @projects = current_user.projects
   end
 
 
 
   # GET /projects/1
-  # GET /projects/1.json
   def show
   end
 
   # GET /projects/new
   def new
-    @my_project = Project.new 
   end
 
   def new_source
@@ -27,13 +25,11 @@ class MyProjectsController < ApplicationController
   end
 
   # POST /projects
-  # POST /projects.json
   def create
-    @my_project = Project.new(project_params)
-    @my_project.user = current_user
+    @project.user = current_user
 
     respond_to do |format|
-      if @my_project.save
+      if @project.save
         format.html { redirect_to my_projects_url, notice: 'Project was successfully created.' }
       else
         format.html { render :new }
@@ -42,11 +38,10 @@ class MyProjectsController < ApplicationController
   end
 
   # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
   def update
     respond_to do |format|
-      if @my_project.update(project_params)
-        format.html { redirect_to my_project_path(@my_project), notice: 'Project was successfully updated.' }
+      if @project.update(project_params)
+        format.html { redirect_to my_project_path(@project), notice: 'Project was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -56,7 +51,7 @@ class MyProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @my_project.destroy
+    @project.destroy
     respond_to do |format|
       format.html { redirect_to my_projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
@@ -64,9 +59,9 @@ class MyProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @my_project = Project.find(params[:id])
+
+    def authorize_my_project
+      authorize! :crud_my_project, @project
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,7 +1,7 @@
 class PublicView::VotesController < ApplicationController
 	load_resource :project
 	load_resource :poll
-	before_filter :authorize_poll
+	before_action :authorize_poll
 
   def new
   end

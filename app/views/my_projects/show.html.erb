@@ -1,32 +1,32 @@
 <h4>
-	<i class="small material-icons"><%= visibility_icon(@my_project)%></i>
-	<%= @my_project.name %>
+	<i class="small material-icons"><%= visibility_icon(@project)%></i>
+	<%= @project.name %>
 </h4>
 
 <p>
   <strong>Visibility:</strong>
-  <%= visibility(@my_project) %>
+  <%= visibility(@project) %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @my_project.description %>
+  <%= @project.description %>
 </p>
 
-<%= link_to 'Project configuration', edit_my_project_path(@my_project), :class => 'waves-effect waves-light btn' %> 
+<%= link_to 'Project configuration', edit_my_project_path(@project), :class => 'waves-effect waves-light btn' %> 
 <br><br>
 <div class="divider"></div>
 
-<% if @my_project.project_source == nil %>
+<% if @project.project_source == nil %>
 	<h4>Source: none </h4>
-	<%= link_to 'Create source', new_source_my_project_path(@my_project), :class => 'waves-effect waves-light btn' %> 
+	<%= link_to 'Create source', new_source_my_project_path(@project), :class => 'waves-effect waves-light btn' %> 
 <% else %>
 
 	<% set_source_decorator %>
 	  
-	<h4>Source:  <%= @my_project.project_source.name %></h4>
+	<h4>Source:  <%= @project.project_source.name %></h4>
 
-	<%= link_to 'Source configuration',  source_path(@my_project) , :class => 'waves-effect waves-light btn'  %> 
+	<%= link_to 'Source configuration',  source_path(@project) , :class => 'waves-effect waves-light btn'  %> 
 <% end %>
 
 <br><br>
