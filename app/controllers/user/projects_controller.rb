@@ -1,10 +1,9 @@
 class User::ProjectsController < ApplicationController
 
-  load_and_authorize_resource :project
+  load_and_authorize_resource
 
   # GET /projects
   def index
-    @projects = current_user.projects
   end
 
 

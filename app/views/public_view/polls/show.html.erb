@@ -10,7 +10,7 @@
 	<div class="divider"></div>
 
 <h5> Issues: </h5>
-<% if can? :vote, @poll %>
+<% if can_vote?(@poll) %>
   <%= link_to 'Vote', new_project_poll_vote_path(@poll.project,@poll), :class => 'waves-effect waves-light btn red lighten-2'  %>
   <br><br>
 <% end %>

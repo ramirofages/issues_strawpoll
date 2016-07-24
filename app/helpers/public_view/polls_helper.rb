@@ -1,2 +1,0 @@
-module PublicView::PollsHelper
-end

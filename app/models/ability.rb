@@ -5,20 +5,21 @@ class Ability
 
     user ||= User.new
 
-    alias_action :create, :read, :update, :destroy, :to => :crud
 
     can :read, Poll
 
     if user.persisted?
         can :manage, Project,   :user_id  => user.id
         can :manage, Poll,      :project  => { :user_id  => user.id }
-        
-        can :manage, ProjectSource,    :project  => { :user_id  => user.id }
 
 
+        can :vote, Poll do |poll| 
+            not poll.votes.any? do |vote|
+                vote.user_id == user.id 
+            end
 
-        cannot :vote, Poll, :votes => { :user_id  => user.id } #no puede votar de nuevo si ya voto
-
+        end
+    
     end
 
 

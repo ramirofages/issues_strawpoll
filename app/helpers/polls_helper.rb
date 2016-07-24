@@ -12,4 +12,12 @@ module PollsHelper
 		remaining_time = (poll.expiration_date - Date.today).to_i
 		(remaining_time > 0) ? remaining_time.to_s+' days' : "ended"
 	end
+
+	def can_vote?(poll)
+		if not user_signed_in?
+			true
+		else
+			can? :vote, poll
+		end
+	end
 end

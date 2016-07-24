@@ -1,6 +1,7 @@
 class SourcesController < ApplicationController
 
-  load_resource :project
+  load_and_authorize_resource :project
+  
 
   def show
   end
