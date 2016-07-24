@@ -6,18 +6,16 @@ class Ability
     user ||= User.new
 
 
-    can :read, Poll
 
     if user.persisted?
         can :manage, Project,   :user_id  => user.id
-        can :manage, Poll,      :project  => { :user_id  => user.id }
+        can [:read, :update, :create, :destroy], Poll,      :project  => { :user_id  => user.id }
 
 
         can :vote, Poll do |poll| 
             not poll.votes.any? do |vote|
-                vote.user_id == user.id 
+                vote.user_id == user.id
             end
-
         end
     
     end
