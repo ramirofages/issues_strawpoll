@@ -1,7 +1,7 @@
 class SourcesController < ApplicationController
 
   load_and_authorize_resource :project
-  
+  before_action :authorize_source, only: [:new, :create]
 
   def show
   end
@@ -45,5 +45,10 @@ class SourcesController < ApplicationController
     end
     def source_params
       raise "no definiste el source params"
+    end
+
+  private 
+    def authorize_source
+      authorize! :create_source, @project
     end
 end
