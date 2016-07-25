@@ -10,6 +10,8 @@
         <tr>
           <th>Name</th>
           <th>Ends in</th>
+          <th>Enabled?</th>
+
         </tr>
       </thead>
 
@@ -18,6 +20,7 @@
           <tr>
             <td><%= poll.name %></td>
             <td><%= poll_ends_in(poll)   %> </td>
+            <td><%= human_boolean(poll.enabled)   %> </td>
 
             <td><%= link_to 'Details', user_project_poll_path(@project, poll) %></td>
             <td><%= link_to 'Destroy', user_project_poll_path(@project, poll), method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -17,7 +17,7 @@
 		    <tr>
 		      <th>Name</th>
 		      <th>Ends in</th>
-		      <th>active</th>
+		      <th>Vote count </th>
 		    </tr>
 		  </thead>
 
@@ -26,7 +26,8 @@
 		      <tr>
 		        <td><%= poll.name %></td>
 		        <td ><strong > <%= poll_ends_in(poll) %></strong></td>
-		        <td><%= poll.enabled %></td>
+		        <td ><strong > <%= poll.votes.size %></strong></td>
+
 		        <td><%= link_to 'Details', project_poll_path(@project, poll) %></td>
 		      </tr>
 		    <% end %>
