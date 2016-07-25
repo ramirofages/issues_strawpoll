@@ -8,7 +8,7 @@ class Ability
 
 
     if user.persisted?
-        can :manage, Project,   :user_id  => user.id
+        can :manage, Project
         can [:read, :update, :create, :destroy, :enable_disable], Poll,      :project  => { :user_id  => user.id }
 
 
@@ -17,8 +17,10 @@ class Ability
                 vote.user_id == user.id
             end
         end
-    
+    else
+        can :read, Project, :public => true
     end
+
 
 
 
