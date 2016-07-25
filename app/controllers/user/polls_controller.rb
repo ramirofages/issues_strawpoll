@@ -15,6 +15,12 @@ class User::PollsController < ApplicationController
   def edit
   end
 
+  def enable_disable
+    @poll.update(enabled: !@poll.enabled)
+    respond_to do |format|
+      format.html { redirect_to user_project_poll_path(@project, @poll), notice: 'Poll was successfully updated.' }
+    end
+  end
 
   def create
     @poll.issues = @project.project_source.select_issues(issues_ids)
@@ -56,7 +62,7 @@ class User::PollsController < ApplicationController
     end
 
     def poll_params
-      params.require(:poll).permit(:name, :description)
+      params.require(:poll).permit(:name, :description, :enabled)
     end
     def poll_duration
       params.require(:poll).permit(:expiration_date)[:expiration_date]

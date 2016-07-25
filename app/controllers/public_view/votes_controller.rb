@@ -15,7 +15,7 @@ class PublicView::VotesController < ApplicationController
    
     respond_to do |format|
       if @poll.votes << votes 
-        format.html { redirect_to project_poll_path(@project,@poll), notice: 'Project was successfully created.' }
+        format.html { redirect_to project_poll_path(@project,@poll), notice: 'Vote was successfully sent.' }
       else
         format.html { render :new }
       end

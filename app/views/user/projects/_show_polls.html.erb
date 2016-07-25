@@ -17,7 +17,7 @@
         <% @project.polls.each do |poll| %>
           <tr>
             <td><%= poll.name %></td>
-            <td><%= (poll.expiration_date - Date.today).to_i   %> days</td>
+            <td><%= poll_ends_in(poll)   %> </td>
 
             <td><%= link_to 'Details', user_project_poll_path(@project, poll) %></td>
             <td><%= link_to 'Destroy', user_project_poll_path(@project, poll), method: :delete, data: { confirm: 'Are you sure?' } %></td>

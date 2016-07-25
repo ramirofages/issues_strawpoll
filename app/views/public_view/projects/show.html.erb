@@ -26,7 +26,7 @@
 		      <tr>
 		        <td><%= poll.name %></td>
 		        <td ><strong > <%= poll_ends_in(poll) %></strong></td>
-		        <td>yes</td>
+		        <td><%= poll.enabled %></td>
 		        <td><%= link_to 'Details', project_poll_path(@project, poll) %></td>
 		      </tr>
 		    <% end %>

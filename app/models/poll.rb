@@ -3,4 +3,8 @@ class Poll < ActiveRecord::Base
   has_many :issues
   has_many :votes
   
+
+  def accept_votes?
+  	(expiration_date - Date.today)>= 0 and enabled
+  end
 end
