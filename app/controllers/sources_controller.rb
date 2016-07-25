@@ -1,6 +1,6 @@
 class SourcesController < ApplicationController
 
-  load_and_authorize_resource :project
+  load_and_authorize_resource :project, :through => :current_user
   before_action :authorize_source_creation, only: [:new, :create]
   before_action :authorize_source_actions, except: [:new, :create]
 
