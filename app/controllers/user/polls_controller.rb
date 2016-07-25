@@ -2,7 +2,6 @@ class User::PollsController < ApplicationController
   load_and_authorize_resource :project
   load_and_authorize_resource :through => :project
 
-  before_action :validate_source
 
 
   def show
@@ -55,11 +54,6 @@ class User::PollsController < ApplicationController
 
   private
 
- 
-
-    def set_poll
-      @poll = Poll.find(params[:id])
-    end
 
     def poll_params
       params.require(:poll).permit(:name, :description, :enabled)
@@ -74,9 +68,4 @@ class User::PollsController < ApplicationController
       issues 
     end
 
-    def validate_source
-      if @project.project_source.nil? 
-        redirect_to user_project_path(@project), alert: 'Project has no source. Create source first.'
-      end
-    end
 end

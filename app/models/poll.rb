@@ -1,7 +1,7 @@
 class Poll < ActiveRecord::Base
   belongs_to :project
   has_many :issues
-  has_many :votes
+  has_many :votes, dependent: :destroy
   
 
   def accept_votes?

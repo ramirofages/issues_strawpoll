@@ -8,9 +8,13 @@ class Ability
 
 
     if user.persisted?
-        can :manage, Project
-        can [:read, :update, :create, :destroy, :enable_disable], Poll,      :project  => { :user_id  => user.id }
+        can [:read, :update, :create, :destroy, :new, :new_source], Project
+        can :create_source, Project, :project_source_id => nil
 
+
+        can [:read, :update, :create, :destroy, :enable_disable], Poll do |poll|
+            poll.project.user_id == user.id and not poll.project.project_source.nil?
+        end
 
         can :vote, Poll do |poll| 
             not poll.votes.any? do |vote|
