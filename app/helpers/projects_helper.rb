@@ -1,4 +1,4 @@
-module MyProjectsHelper
+module ProjectsHelper
 
 	def visibility(project)
 		(project.public) ? 'PUBLIC' : 'PRIVATE'
