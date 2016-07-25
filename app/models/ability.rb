@@ -9,10 +9,17 @@ class Ability
 
     if user.persisted?
         can [:read, :update, :create, :destroy, :new], Project
+
         can [:create_source, :new_source], Project do |project|
             project.project_source.nil?
         end
 
+        can :mocked_source_actions, Project do |project|
+            project.project_source.class == MockedSource
+        end
+        can :github_source_actions, Project do |project|
+            project.project_source.class == GithubSource
+        end
 
 
         can [:read, :update, :create, :destroy, :enable_disable], Poll do |poll|

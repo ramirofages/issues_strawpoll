@@ -8,7 +8,6 @@ class PublicView::ProjectsController < ApplicationController
   # GET /projects.json 
 
   def index
-
   end
 
 
@@ -17,5 +16,6 @@ class PublicView::ProjectsController < ApplicationController
   def show
 
   end
+
 
 end

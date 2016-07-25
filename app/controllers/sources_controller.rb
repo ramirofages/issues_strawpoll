@@ -1,7 +1,8 @@
 class SourcesController < ApplicationController
 
   load_and_authorize_resource :project
-  before_action :authorize_source, only: [:new, :create]
+  before_action :authorize_source_creation, only: [:new, :create]
+  before_action :authorize_source_actions, except: [:new, :create]
 
   def show
   end
@@ -37,18 +38,31 @@ class SourcesController < ApplicationController
   end
 
   protected 
-    def create_source
-      raise "no definiste el create source"
-    end
-    def build_source
-      raise "no definiste el create source"
-    end
+
+
     def source_params
       raise "no definiste el source params"
     end
 
   private 
-    def authorize_source
+
+    def create_source
+      controller_name.classify.constantize.new
+    end
+
+    def build_source
+      controller_name.classify.constantize.new source_params
+    end
+
+    def authorize_source_actions
+      action = controller_name.classify.constantize.model_name.param_key + "_actions"
+      action = action.to_sym
+      authorize! action, @project
+    end 
+
+    def authorize_source_creation
       authorize! :create_source, @project
     end
+
+
 end
