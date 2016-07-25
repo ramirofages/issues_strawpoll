@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   namespace 'user' do
     resources :projects do 
       resource :mocked_source, except: ['destroy'], module: 'sources'
+      resource :github_source, except: ['destroy'], module: 'sources'
+
       resources :polls
       member do
         get 'new_source'

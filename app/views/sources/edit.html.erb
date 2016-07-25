@@ -1,8 +1,7 @@
-<% set_source_decorator %>
-<h2 class="center">Editing <%= @project.project_source.name %> source</h2>
+<h2 class="center">Editing <%= source_name(@project.project_source) %> source</h2>
 
 <%= render 'form' %>
 
 <br>
-<%= link_to '<< Back',  user_project_mocked_source_path(@project), :class => 'waves-effect waves-light btn' %>
+<%= link_to '<< Back',  polymorphic_path([:user, @project, @project.project_source]), :class => 'waves-effect waves-light btn' %>
 

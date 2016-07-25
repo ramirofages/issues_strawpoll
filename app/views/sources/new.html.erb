@@ -1,6 +1,4 @@
-<% set_source_decorator %>
-
-<h2 class="center">New <%= @project.project_source.name %> source</h2>
+<h2 class="center">New <%= source_name(@project.project_source) %> source</h2>
 <%= render 'form' %>
 <br>
 <%= link_to '<< Back', user_project_path(@project), :class => 'waves-effect waves-light btn' %>

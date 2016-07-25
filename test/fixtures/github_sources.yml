@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  repo_url: MyString
+  include_pull_request: false
+
+two:
+  repo_url: MyString
+  include_pull_request: false

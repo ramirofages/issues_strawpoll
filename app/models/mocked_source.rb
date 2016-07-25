@@ -7,9 +7,9 @@ class MockedSource < ActiveRecord::Base
 		end
 	end
 
-	def select_issues(issue_ids)
+	def select_issues(issues_ids)
 		#en el futuro la optimizo
-		issue_ids.map do |mocked_issue_id|
+		issues_ids.map do |mocked_issue_id|
 			mocked_issue = MockedIssue.find(mocked_issue_id)
 			translate_to_issue(mocked_issue)
 		end

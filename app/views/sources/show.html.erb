@@ -1,10 +1,8 @@
-<% set_source_decorator %>
 
-<h4><%= @project.project_source.name %> source </h4>
+<h4><%= source_name(@project.project_source) %> source </h4>
 
 <%= render 'show' %>
-
-<%= link_to 'Edit', edit_user_project_mocked_source_path(@project), :class => 'waves-effect waves-light btn'  %> 
+<%= link_to 'Edit', edit_polymorphic_path([:user, @project, @project.project_source]) , :class => 'waves-effect waves-light btn'  %> 
 <br><br>
 <div class="divider"></div>
 <br>

@@ -22,9 +22,8 @@
 	<%= link_to 'Create source', new_source_user_project_path(@project), :class => 'waves-effect waves-light btn' %> 
 <% else %>
 
-	<% set_source_decorator %>
 	  
-	<h4>Source:  <%= @project.project_source.name %></h4>
+	<h4>Source:  <%= source_name(@project.project_source) %></h4>
 
 	<%= link_to 'Source configuration',  source_path(@project) , :class => 'waves-effect waves-light btn'  %> 
 <% end %>

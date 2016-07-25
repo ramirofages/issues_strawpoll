@@ -2,7 +2,6 @@
 <div class="row">
   <div class="col s8 offset-s2">
     <h2 >My projects</h2>
-    <% set_source_collection_decorator %>
     <table class="striped">
       <thead>
         <tr>
@@ -17,7 +16,7 @@
           <tr>
             <td><%= project.name %></td>
             <td ><strong ><%= visibility(project) %></strong></td>
-            <td><%= source_name(project) %></td>
+            <td><%= source_name(project.project_source) %></td>
             <td><%= link_to 'Details', user_project_path(project) %></td>
             <td><%= link_to 'Destroy', user_project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>

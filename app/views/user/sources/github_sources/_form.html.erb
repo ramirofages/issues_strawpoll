@@ -1,0 +1,19 @@
+<%= form_for @project.project_source, url: user_project_github_source_path(@project) do |f| %>
+
+	<div class="field">
+		<%= f.label :repo_url %><br>
+		<%= f.text_field :repo_url %>
+	</div>
+
+		<div class="field">
+		<%= f.check_box :include_pull_request %>
+
+		<%= f.label :include_pull_request %><br>
+	</div>
+<br>
+	
+	<button class="btn waves-effect waves-light" type="submit" name="action"><%= f.submit %>
+		<i class="material-icons right">send</i>
+	</button>
+
+<% end %>

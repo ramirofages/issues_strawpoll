@@ -1,0 +1,14 @@
+<p>
+  <strong>Source name:</strong>
+  <%= source_name(@project.project_source) %>
+</p>
+
+<p>
+  <strong>Repository URL:</strong>
+  <%= @project.project_source.repo_url %>
+</p>
+
+<p>
+  <strong>Include pull requests?</strong>
+  <%= human_boolean(@project.project_source.include_pull_request) %>
+</p>
