@@ -1,4 +1,9 @@
 class GithubSource < ActiveRecord::Base
+
+  validates :repo_url, presence: true
+  validates_inclusion_of :include_pull_request, :in => [true, false]
+  validates :issues, presence: true
+
 	has_one :project, as: :project_source
 
 	def all_issues
