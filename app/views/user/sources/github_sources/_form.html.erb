@@ -1,8 +1,8 @@
 <%= form_for @project.project_source, url: user_project_github_source_path(@project) do |f| %>
 
 	<div class="field">
-		<%= f.label :repo_url %><br>
-		<%= f.text_field :repo_url %>
+		<%= f.label 'Repository path' %><br>
+		<%= f.text_field :repo_url, placeholder: 'ramirofages/issues_strawpoll', required: true %>
 	</div>
 
 		<div class="field">

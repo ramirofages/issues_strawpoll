@@ -16,7 +16,7 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
   </div>
 
      
@@ -38,7 +38,7 @@
 
 
 
-  <h4> Open issues: </h4>
+  <h4> Select issues to be voted for: </h4>
   <% unless action=='update' %>
     <br>
     <%= f.collection_check_boxes( :issues, @issues, :src_issue_id, :name) do |b| %>

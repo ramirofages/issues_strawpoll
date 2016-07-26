@@ -1,6 +1,7 @@
 @import "materialize/components/color";
 $primary-color: 	color("brown", "darken-1") !default;
 $secondary-color: 	color("brown", "darken-1") !default;
+$placeholder-text-color: color("brown", "darken-1") !default;
 
 @import "materialize";
 
@@ -18,4 +19,5 @@ body {
 main {
 	flex: 1 0 auto;
 }
+
     
