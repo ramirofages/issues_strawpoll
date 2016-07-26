@@ -6,11 +6,17 @@
 
     <ul id="nav-mobile" class="left ">
       <li><a href="/projects">projects</a></li>
-      <li><a href="/user/projects">my projects</a></li>
+      <% if user_signed_in? %>
+        <li><a href="/user/projects">my projects</a></li>
+      <% end %>    
     </ul>
 
     <ul id="nav-mobile" class="right ">
-      <% if user_signed_in? %><li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li> <% end %>     
+      <% if user_signed_in? %>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li> 
+      <% else %>
+        <li><%= link_to('Login', new_user_session_path)  %>   </li> 
+      <% end %>     
       <li><a href="/rails/info/routes" target="_blank">rake routes</a></li>
       <li><a href="http://materializecss.com/buttons.html" target="_blank">materialize css</a></li>
     </ul>
