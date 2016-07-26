@@ -1,9 +1,9 @@
 class Issue < ActiveRecord::Base
 
-  validates :src_issue_id, :name, :description, presence: true
+  validates :poll, :src_issue_id, :name, :description, presence: true
 
 
 
-  belongs_to :poll
+  belongs_to :poll, inverse_of: :issues
   has_many :votes
 end
