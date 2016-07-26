@@ -3,6 +3,7 @@ class GithubSource < ActiveRecord::Base
   validates :repo_url, presence: true
   validates_inclusion_of :include_pull_request, :in => [true, false]
   validates_with ProjectSourceValidator, on: :create
+  validates_with GithubSourceValidator
 
 	has_one :project, as: :project_source
 

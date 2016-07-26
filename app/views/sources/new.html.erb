@@ -1,4 +1,7 @@
 <h2 class="center">New <%= source_name(@project.project_source) %> source</h2>
+
+<%= render "application/form_errors", target: @project.project_source %>
+
 <%= render 'form' %>
 <br>
 <%= link_to '<< Back', user_project_path(@project), :class => 'waves-effect waves-light btn' %>

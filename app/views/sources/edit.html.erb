@@ -1,5 +1,7 @@
 <h2 class="center">Editing <%= source_name(@project.project_source) %> source</h2>
 
+<%= render "application/form_errors", target: @project.project_source %>
+
 <%= render 'form' %>
 
 <br>

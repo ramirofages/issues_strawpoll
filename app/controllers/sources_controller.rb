@@ -21,6 +21,7 @@ class SourcesController < ApplicationController
       if @project.save
         format.html { redirect_to polymorphic_path([:user, @project, @project.project_source]), notice: 'Source was successfully created.' }
       else
+
         format.html { render :new }
       end
     end
@@ -32,7 +33,7 @@ class SourcesController < ApplicationController
       if @project.project_source.update(source_params)
         format.html { redirect_to polymorphic_path([:user, @project, @project.project_source]), notice: 'Source was successfully updated.' }
       else
-        format.html { render :new }
+        format.html { render :edit }
       end
     end
   end

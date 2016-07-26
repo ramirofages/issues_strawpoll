@@ -1,0 +1,12 @@
+<% if target.errors.any? %>
+  <div class="card-panel red darken-2">
+		<span class="white-text text-white">
+      <h5><%= pluralize(target.errors.count, "error") %> prohibited this <%= target.class.model_name.human %> from being saved:</h5>
+
+      <% target.errors.full_messages.each do |message| %>
+      	<%= message %>
+			  <div class="divider" ></div>
+      <% end %>
+	   </span>
+  </div>
+<% end %>

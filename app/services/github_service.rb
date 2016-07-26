@@ -24,6 +24,20 @@ class GithubService
 		end
 	end
 
+	def self.repository_valid?(repository_url)
+		client = Octokit::Client.new
+		errors = []
+		begin 
+			client.repository repository_url
+
+			rescue Octokit::NotFound
+				errors << "Repository does not exist"
+			rescue Octokit::InvalidRepository
+				errors << "Invalid Repository. Use user/repo format"
+		end
+		errors
+	end
+
 	private
 
 		def self.get_issues(repository_url)

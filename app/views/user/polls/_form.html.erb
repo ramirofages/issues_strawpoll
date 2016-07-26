@@ -1,18 +1,8 @@
 <%= form_for @poll, url: {action: action} do |f| %>
 
 
+  <%= render "application/form_errors", target: @poll %>
 
-  <% if @poll.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@poll.errors.count, "error") %> prohibited this poll from being saved:</h2>
-
-      <ul>
-      <% @poll.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :name %><br>
