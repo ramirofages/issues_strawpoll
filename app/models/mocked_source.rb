@@ -1,6 +1,6 @@
 class MockedSource < ActiveRecord::Base
 
-	validates_with ProjectSourceValidator
+	validates_with ProjectSourceValidator, on: :create
 
 
 	has_one :project, as: :project_source
