@@ -11,3 +11,13 @@ two:
   public: false
   description: MyString
   project_source_id: 
+without_source:
+  name: MyString
+  public: false
+  description: MyString
+  project_source_id: 
+with_source:
+  name: MyString
+  public: false
+  description: MyString
+  project_source: mocked_source (MockedSource)

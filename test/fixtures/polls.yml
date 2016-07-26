@@ -3,9 +3,11 @@
 enabled:
   expiration_date: <%= Date.tomorrow %>
   enabled: true
-  project_id: 
+  project: with_source
+
 
 disabled:
   expiration_date: 2016-07-19 21:51:58
   enabled: false
-  project_id: 
+  project: with_source 
+

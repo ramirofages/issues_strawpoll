@@ -8,3 +8,5 @@ one:
   url: test1.com
 two:
   url: test2.com
+mocked_source:
+  url: test3.com

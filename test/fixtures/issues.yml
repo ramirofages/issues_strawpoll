@@ -4,10 +4,11 @@ one:
   name: MyString
   description: MyString
   src_issue_id: 1
-  poll_id: 
+  poll: enabled
 
 two:
   name: MyString
   description: MyString
   src_issue_id: 1
-  poll_id: 
+  poll: enabled
+
