@@ -6,8 +6,5 @@
 #
 one: 
   url: test1.com
-# column: value
-#
 two:
-	url: test2.com
-#  column: value
+  url: test2.com
