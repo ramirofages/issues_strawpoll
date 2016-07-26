@@ -2,15 +2,12 @@ require 'test_helper'
 
 class VoteTest < ActiveSupport::TestCase
 
-	setup do
-
-
-	end
 
 	test "should add vote to enabled poll" do
 		poll = polls(:enabled)
 		vote = Vote.new do |vote|
 			vote.poll = poll
+			vote.user = users(:one)
 		end
 
   	assert_difference('Vote.count') do
@@ -23,6 +20,8 @@ class VoteTest < ActiveSupport::TestCase
 		poll = polls(:disabled)
 		vote = Vote.new do |vote|
 			vote.poll = poll
+			vote.user = users(:one)
+
 		end
 
   	assert_no_difference('Vote.count') do
