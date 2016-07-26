@@ -17,7 +17,7 @@ class PublicView::VotesController < ApplicationController
       if @poll.votes << votes 
         format.html { redirect_to project_poll_path(@project,@poll), notice: 'Vote was successfully sent.' }
       else
-        format.html { render :new }
+        format.html { redirect_to project_poll_path(@project,@poll), alert: 'Votation has been closed.' }
       end
     end
 
