@@ -10,7 +10,7 @@ class User::PollsController < ApplicationController
   def new
     @issues = @project.project_source.all_issues
     respond_to do |format|
-      format.html { redirect_to user_project_poll_path(@project, @poll), notice: 'There are no open issues available.' }
+      format.html { redirect_to user_project_path(@project), notice: 'There are no open issues available.' }
     end unless @issues.size > 0
 
   end

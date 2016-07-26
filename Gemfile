@@ -39,6 +39,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :production do
   gem 'pg'
+  gem 'better_errors'
+  
 end
 
 group :development, :test do
