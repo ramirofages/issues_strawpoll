@@ -1,5 +1,10 @@
 class MockedSource < ActiveRecord::Base
+
+	validates_with ProjectSourceValidator
+
+
 	has_one :project, as: :project_source
+
 
 	def all_issues
 		MockedIssue.all.map do |mocked_issue|
