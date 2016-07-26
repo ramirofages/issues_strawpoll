@@ -100,6 +100,7 @@ GEM
     octokit (4.3.0)
       sawyer (~> 0.7.0, >= 0.5.3)
     orm_adapter (0.5.0)
+    pg (0.18.4-x64-mingw32)
     pkg-config (1.1.7)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
@@ -190,6 +191,7 @@ DEPENDENCIES
   launchy
   materialize-sass (= 0.97.6)
   octokit (~> 4.0)
+  pg
   quiet_assets
   rails (= 4.2.5)
   sass-rails (~> 5.0)
