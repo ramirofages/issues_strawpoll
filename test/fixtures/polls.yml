@@ -11,3 +11,8 @@ disabled:
   enabled: false
   project: with_source 
 
+without_issues:
+  expiration_date: <%= Date.tomorrow %>
+  enabled: true
+  project: with_source
+
