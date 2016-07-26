@@ -28,17 +28,4 @@ class IssueTest < ActiveSupport::TestCase
 			issue.save
 		end
 	end
-
-	test "should not create issue without poll" do
-
-		issue = Issue.new do |issue|
-			issue.name = "asd"
-			issue.src_issue_id = 4
-			issue.description = "asdasd"
-		end
-
-		assert_no_difference('Issue.count') do
-			issue.save
-		end
-	end
 end

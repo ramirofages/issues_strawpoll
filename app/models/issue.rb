@@ -1,6 +1,6 @@
 class Issue < ActiveRecord::Base
 
-  validates :poll_id, :src_issue_id, :name, :description, presence: true
+  validates :src_issue_id, :name, :description, presence: true
 
 
 

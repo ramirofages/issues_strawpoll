@@ -9,7 +9,6 @@ class User::PollsController < ApplicationController
 
   def new
     @issues = @project.project_source.all_issues
-
     respond_to do |format|
       format.html { redirect_to user_project_poll_path(@project, @poll), notice: 'There are no open issues available.' }
     end unless @issues.size > 0
@@ -27,12 +26,15 @@ class User::PollsController < ApplicationController
   end
 
   def create
+
     @poll.issues = @project.project_source.select_issues(issues_ids)
     @poll.expiration_date = Date.today + poll_duration.to_i
+
     respond_to do |format|
       if @project.polls << @poll 
         format.html { redirect_to user_project_url(@project), notice: 'Poll was successfully created.' }
       else
+        @issues = @project.project_source.all_issues
         format.html { render :new }
       end
     end
