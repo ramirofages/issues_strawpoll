@@ -1,6 +1,7 @@
 class Poll < ActiveRecord::Base
 
-  validates :project_id, :name, :enabled, presence: true
+  validates :project_id, :name, presence: true
+  validates_inclusion_of :enabled, :in => [true, false]
   validates :issues, presence: true
 	validates_with ProjectHasSourceValidator
 

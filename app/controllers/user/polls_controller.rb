@@ -29,7 +29,6 @@ class User::PollsController < ApplicationController
 
     @poll.issues = @project.project_source.select_issues(issues_ids)
     @poll.expiration_date = Date.today + poll_duration.to_i
-
     respond_to do |format|
       if @project.polls << @poll 
         format.html { redirect_to user_project_url(@project), notice: 'Poll was successfully created.' }
