@@ -4,7 +4,7 @@ one:
   name: MyString
   public: false
   description: MyString
-  project_source_id:
+  project_source_id: mocked_source (MockedSource)
   user: one 
 
 two:
