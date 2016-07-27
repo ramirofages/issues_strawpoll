@@ -5,7 +5,10 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  id: 1
-  email: asd@email.com
+  email: asd1@email.com
+  encrypted_password: 4567554354
+  sign_in_count: 10
+without_projects:
+  email: asd2@email.com
   encrypted_password: 4567554354
   sign_in_count: 10

@@ -19,7 +19,7 @@
   <div class="divider"></div>
 
 	<h5> Issues: </h5>
-  <%= link_to 'Go to public poll >>', project_poll_path(@project, @poll), :class => 'waves-effect waves-light btn', 
+  <%= link_to 'Go to public view >>', project_poll_path(@project, @poll), :class => 'waves-effect waves-light btn', 
                                                                           :target => target="_blank" %>
 
     <% @poll.issues.each do |issue| %>

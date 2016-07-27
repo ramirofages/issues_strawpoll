@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resource :mocked_source, except: ['destroy'], module: 'sources'
       resource :github_source, except: ['destroy'], module: 'sources'
 
-      resources :polls do
+      resources :polls, except: [:index] do
         member do 
           post 'enable_disable'
         end

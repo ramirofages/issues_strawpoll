@@ -16,3 +16,8 @@ without_issues:
   enabled: true
   project: with_source
 
+from_project_one:
+  name: asdasda
+  expiration_date: <%= Date.tomorrow %>
+  enabled: true
+  project: one
