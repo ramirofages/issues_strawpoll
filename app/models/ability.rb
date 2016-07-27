@@ -28,7 +28,7 @@ class Ability
         end
 
         can :vote, Poll do |poll| 
-            not poll.votes.any? do |vote|
+            poll.accept_votes? and not poll.votes.any? do |vote|
                 vote.user_id == user.id
             end
         end

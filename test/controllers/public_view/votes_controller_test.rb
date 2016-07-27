@@ -13,6 +13,16 @@ class PublicView::VotesControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
+  test "should NOT get new on closed or expired poll" do
+    sign_in users(:one)
+    
+    poll = polls(:expired) 
+
+    get :new, project_id: poll.project, poll_id: poll
+
+    assert_response :redirect
+  end
+
   test "should get new when signed in as the owner of the poll" do
   	sign_in users(:one)
 

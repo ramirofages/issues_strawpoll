@@ -33,3 +33,9 @@ from_private_project:
   expiration_date: <%= Date.tomorrow %>
   enabled: true
   project: private
+
+expired:
+  name: asdasda
+  expiration_date: <%= Date.yesterday %>
+  enabled: false
+  project: private
