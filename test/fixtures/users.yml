@@ -12,3 +12,7 @@ without_projects:
   email: asd2@email.com
   encrypted_password: 4567554354
   sign_in_count: 10
+three:
+  email: asd3@email.com
+  encrypted_password: 4567554354
+  sign_in_count: 10
