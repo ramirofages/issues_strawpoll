@@ -1,6 +1,9 @@
-== Project issues strawpoll
+# Project issues strawpoll
 
-Try it at: (https://project-issues-strawpoll.herokuapp.com)
+###Try it 
+[heroku](https://project-issues-strawpoll.herokuapp.com)
+
+### Install it
 
 To set everything up, run:
 
