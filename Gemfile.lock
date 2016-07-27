@@ -107,6 +107,7 @@ GEM
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
+    railroady (1.5.1)
     rails (4.2.5)
       actionmailer (= 4.2.5)
       actionpack (= 4.2.5)
@@ -193,6 +194,7 @@ DEPENDENCIES
   octokit (~> 4.0)
   pg
   quiet_assets
+  railroady
   rails (= 4.2.5)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
