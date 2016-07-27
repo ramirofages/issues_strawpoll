@@ -2,21 +2,22 @@ require 'test_helper'
 
 class ProjectTest < ActiveSupport::TestCase
 
-	setup do
-		@project = Project.new
-	end
 
 
-  test "project should not create source if already has one" do 
-  	@project.project_source = MockedSource.new
+
+  test "should create project without source" do 
+
+  	new_project = Project.new do |project| 
+  		project.name = "asd"
+  		project.description = "chau"
+  		project.public = false
+  	end
+
   	assert_difference('Project.count') do
-			@project.save
+			new_project.save
 		end
 
-  	@project.project_source = GithubSource.new
-		assert_no_difference('GithubSource.count') do
-			@project.save
-		end
+
   end
 
 end

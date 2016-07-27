@@ -6,4 +6,5 @@ class Project < ActiveRecord::Base
   def is_private?
   	!public
   end
+
 end
