@@ -21,3 +21,15 @@ from_project_one:
   expiration_date: <%= Date.tomorrow %>
   enabled: true
   project: one
+
+from_public_project:
+  name: asdasda
+  expiration_date: <%= Date.tomorrow %>
+  enabled: true
+  project: public
+
+from_private_project:
+  name: asdasda
+  expiration_date: <%= Date.tomorrow %>
+  enabled: true
+  project: private

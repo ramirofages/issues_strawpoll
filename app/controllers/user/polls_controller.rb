@@ -1,5 +1,5 @@
 class User::PollsController < ApplicationController
-  load_and_authorize_resource :project
+  load_and_authorize_resource :project, :through => :current_user
   load_and_authorize_resource :through => :project
 
 

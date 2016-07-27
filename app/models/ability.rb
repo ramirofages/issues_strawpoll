@@ -21,8 +21,9 @@ class Ability
             project.project_source.class == GithubSource
         end
 
-
-        can [:read, :update, :create, :destroy, :enable_disable], Poll do |poll|
+        can :read, Poll 
+        
+        can [:update, :create, :destroy, :enable_disable], Poll do |poll|
             poll.project.user_id == user.id and not poll.project.project_source.nil?
         end
 
@@ -33,6 +34,7 @@ class Ability
         end
     else
         can :read, Project, :public => true
+        can :read, Poll, :project => { :public => true }
     end
 
 
