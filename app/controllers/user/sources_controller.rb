@@ -1,4 +1,4 @@
-class SourcesController < ApplicationController
+class User::SourcesController < ApplicationController
 
   load_and_authorize_resource :project, :through => :current_user
   before_action :authorize_source_creation, only: [:new, :create]
@@ -15,10 +15,11 @@ class SourcesController < ApplicationController
   end
 
 	def create
-		@project.project_source = build_source
-  		
+    source = build_source
+    source.project = @project 
+
     respond_to do |format|
-      if @project.save
+      if source.save
         format.html { redirect_to polymorphic_path([:user, @project, @project.project_source]), notice: 'Source was successfully created.' }
       else
 

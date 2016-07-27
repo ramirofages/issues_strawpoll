@@ -1,4 +1,4 @@
-class User::Sources::MockedSourcesController < SourcesController
+class User::Sources::MockedSourcesController < User::SourcesController
   
 
 	protected

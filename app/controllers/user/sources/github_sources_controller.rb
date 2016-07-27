@@ -1,4 +1,4 @@
-class User::Sources::GithubSourcesController < SourcesController
+class User::Sources::GithubSourcesController < User::SourcesController
   
 
 	protected
