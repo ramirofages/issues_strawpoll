@@ -4,13 +4,15 @@ one:
   name: MyString
   public: false
   description: MyString
-  project_source_id: 
+  project_source_id:
+  user: one 
 
 two:
   name: MyString
   public: false
   description: MyString
   project_source_id: 
+
 without_source:
   name: MyString
   public: false
@@ -21,3 +23,17 @@ with_source:
   public: false
   description: MyString
   project_source: mocked_source (MockedSource)
+
+public:
+  name: MyString
+  public: true
+  description: MyString
+  project_source_id:
+  user: one 
+
+private:
+  name: MyString
+  public: false
+  description: MyString
+  project_source_id:
+  user: one 
