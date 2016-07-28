@@ -6,11 +6,14 @@ class Poll < ActiveRecord::Base
 	validates_with PollValidator
 
   belongs_to :project
-  has_many :issues
-  has_many :votes, dependent: :destroy
+  has_many :issues, dependent: :destroy
   
 
   def accept_votes?
   	(expiration_date - Date.today)>= 0 and enabled
+  end
+
+  def votes
+    issues.flat_map {|issue| issue.votes }
   end
 end

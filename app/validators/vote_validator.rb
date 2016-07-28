@@ -1,5 +1,6 @@
 class VoteValidator < ActiveModel::Validator
   def validate(record)
-  	record.errors[:base] << "Cannot vote" unless record.poll.accept_votes?
+  	return unless record.errors.blank?
+  	record.errors[:base] << "Cannot vote" unless record.issue.poll.accept_votes?
   end
 end

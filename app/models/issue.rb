@@ -5,5 +5,5 @@ class Issue < ActiveRecord::Base
 
 
   belongs_to :poll, inverse_of: :issues
-  has_many :votes
+  has_many :votes, dependent: :destroy
 end

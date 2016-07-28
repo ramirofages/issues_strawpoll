@@ -12,3 +12,15 @@ two:
   src_issue_id: 1
   poll: enabled
 
+from_enabled_poll:
+  name: MyString
+  description: MyString
+  src_issue_id: 1
+  poll: enabled
+
+from_disabled_poll:
+  name: MyString
+  description: MyString
+  src_issue_id: 1
+  poll: disabled
+
