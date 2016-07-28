@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725035251) do
+ActiveRecord::Schema.define(version: 20160728053424) do
 
   create_table "github_sources", force: :cascade do |t|
     t.string   "repo_url"
@@ -93,11 +93,9 @@ ActiveRecord::Schema.define(version: 20160725035251) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "poll_id"
   end
 
   add_index "votes", ["issue_id"], name: "index_votes_on_issue_id"
-  add_index "votes", ["poll_id"], name: "index_votes_on_poll_id"
   add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end
